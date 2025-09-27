@@ -22,7 +22,7 @@ class OTPService
    * @param  int $validity
    * @return OTP
    */
-  public function generate(string $identifier, int $length = 4, int $validity = 10){
+  public function generate(string $identifier, int $length = 6, int $validity = 10){
       // check if otp already exists
       OTP::where('identifier', $identifier)->delete();
         // generate otp

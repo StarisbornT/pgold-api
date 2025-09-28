@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PGoldController;
 Route::prefix('auth')->group(function () {
     Route::post('login', [App\Http\Controllers\Auth\AuthController::class, 'login']);
     Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
@@ -11,4 +12,6 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/profile', [UserController::class, 'index']);
+    Route::get('/giftcards', [PGoldController::class, 'getGiftCards']);
+    Route::get('/cryptos', [PGoldController::class, 'getCryptos']);
 });
